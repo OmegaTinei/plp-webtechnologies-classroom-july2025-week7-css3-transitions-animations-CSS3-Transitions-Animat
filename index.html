@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Health Informatics and Data Analytics Portal</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Header and Navigation: Uses Flexbox for alignment -->
+    <header>
+        <h1>Ministry of Health</h1>
+        <h2>Health Informatics Data Portal</h2>
+        <nav class="main-nav">
+            <a href="#">Dashboard</a>
+            <a href="#">Submissions</a>
+            <a href="#">Reports</a>
+            <a href="#">Help</a>
+        </nav>
+    </header>
+
+    <!-- Main Content Area: Uses CSS Grid for the two-column layout -->
+    <main class="main-layout">
+        <section class="content-section">
+            <h2>Harnessing Data for Public Health</h2>
+            <p id="greeting-message">Effective data management is crucial for informed decision-making in public health. Here, we explore key principles of data analysis and its application in strengthening health systems.</p>
+            
+            <div class="card-container">
+                <!-- This card will have an animation -->
+                <div class="card pulsating-card">
+                    <h3>Data Quality & Validation</h3>
+                    <p>Ensuring data is accurate, complete, and reliable is the first step. We use tools like DHIS2 to implement validation rules that catch errors at the point of entry.</p>
+                </div>
+                <div class="card">
+                    <h3>Timely Reporting</h3>
+                    <p>Data must be submitted and analyzed promptly to inform immediate action and a swift response to public health threats.</p>
+                </div>
+                <div class="card">
+                    <h3>Data-driven Decisions</h3>
+                    <p>Transforming data into insights that lead to better health outcomes is our ultimate goal. Data analytics drives everything we do.</p>
+                </div>
+            </div>
+
+            <!-- Part 1: JavaScript Event Handling & Interactive Elements -->
+            <section class="content-section">
+                <h3>BMI Calculator</h3>
+                <p>Use the form below to calculate your Body Mass Index (BMI).</p>
+                <form id="bmi-form">
+                    <div class="form-group">
+                        <label for="name">Your Name:</label>
+                        <input type="text" id="name" required>
+                        <span class="error-message" id="name-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="weight">Weight (kg):</label>
+                        <input type="number" id="weight" step="0.1" required>
+                        <span class="error-message" id="weight-error"></span>
+                    </div>
+                    <div class="form-group">
+                        <label for="height">Height (m):</label>
+                        <input type="number" id="height" step="0.01" required>
+                        <span class="error-message" id="height-error"></span>
+                    </div>
+                    <button type="submit" class="cta-button">Calculate BMI</button>
+                </form>
+                <div id="result-area">
+                    <p id="bmi-result-text"></p>
+                </div>
+            </section>
+
+            <!-- Part 2: Interactive Element (Collapsible FAQ) -->
+            <section class="content-section">
+                <h3>Frequently Asked Questions</h3>
+                <div class="faq-item">
+                    <div class="faq-question">What is DHIS2?</div>
+                    <div class="faq-answer">DHIS2 (District Health Information Software 2) is a free, open-source health management information system used by many countries for collecting, analyzing, and visualizing health data.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How is data quality ensured?</div>
+                    <div class="faq-answer">Data quality is ensured through a combination of automated validation rules, routine data audits, and ongoing training for health information staff at all levels.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Why is data analysis important?</div>
+                    <div class="faq-answer">Data analysis helps us identify trends, track outbreaks, measure program effectiveness, and make evidence-based decisions to improve public health outcomes.</div>
+                </div>
+            </section>
+
+            <!-- Part 3: Combining CSS Animations with JavaScript and Health Information -->
+            <section class="content-section">
+                <h3>Key Health Information Systems</h3>
+                <p>. The box will also reveal information about health data management systems.</p>
+                <button id="trigger-animation-button" class="cta-button">Animate Box</button>
+                <div class="animated-box" id="animated-box">
+                    <!-- The new content for the pop-up -->
+                    <div class="info-content" id="info-content">
+                        <h4>Key Health Data Systems:</h4>
+                        <ul>
+                            <li>Go.data</li>
+                            <li>Power BI</li>
+                            <li>Tableau</li>
+                            <li>DHIS2</li>
+                            <li>Excel</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- A place for the JavaScript loop to add items -->
+            <section class="content-section">
+                <h3>Key Data Principles (Added by JS Loop)</h3>
+                <ul id="principles-list"></ul>
+            </section>
+        </section>
+
+        <aside class="sidebar">
+            <h3>More Resources</h3>
+            <ul>
+                <li><a href="#">DHIS2 Training</a></li>
+                <li><a href="#">Data Privacy Guidelines</a></li>
+                <li><a href="#">Public Health Reports</a></li>
+            </ul>
+        </aside>
+    </main>
+
+    <!-- Footer: Uses Flexbox to center content -->
+    <footer>
+        <p>&copy; 2024 Ministry of Health. All rights reserved.</p>
+    </footer>
+
+    <!-- Link to our JavaScript file -->
+    <script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,291 @@
+/* * Base Styles & Typography
+ * These styles apply across all screen sizes for a consistent look.
+ */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f4f4f4;
+    margin: 0;
+}
+
+header, .main-layout, footer {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* * Flexbox: Navigation Bar
+ * The header and navigation use Flexbox to align content and links horizontally.
+ */
+header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #005f93;
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 10px;
+}
+
+.main-nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.2);
+    transition: background-color 0.3s ease;
+}
+
+.main-nav a:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* * CSS Grid: Main Layout
+ * The main content area uses CSS Grid for a clean two-column layout.
+ */
+.main-layout {
+    display: grid;
+    grid-template-columns: 2fr 1fr; /* Main content takes 2/3, sidebar takes 1/3 */
+    gap: 20px;
+    padding: 20px;
+}
+
+.content-section {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px; /* Add margin to space out sections */
+}
+
+.sidebar {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Flexbox for Cards */
+.card-container {
+    display: flex;
+    justify-content: space-between; /* Space out the cards */
+    flex-wrap: wrap; /* Allows cards to wrap to the next line on smaller screens */
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.card {
+    flex: 1; /* Allows each card to grow and shrink evenly */
+    background-color: #eaf6ff;
+    border: 1px solid #cceeff;
+    padding: 15px;
+    border-radius: 8px;
+    min-width: 250px; /* Ensures cards don't get too small */
+}
+
+/* --- Part 1: CSS Transitions and Animations --- */
+
+/* Button Styling with a transition */
+.cta-button {
+    background-color: #005f93;
+    color: #fff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.cta-button:hover {
+    background-color: #004d7a;
+    transform: translateY(-2px);
+}
+
+/* Keyframe animation for a pulsing card */
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.03);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.pulsating-card {
+    animation: pulse 2s infinite;
+}
+
+/* Form Styling */
+#bmi-form .form-group {
+    margin-bottom: 15px;
+}
+
+#bmi-form label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+#bmi-form input[type="text"],
+#bmi-form input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+#result-area {
+    margin-top: 20px;
+    padding: 15px;
+    border-left: 4px solid #005f93;
+    background-color: #f0f8ff;
+    border-radius: 5px;
+}
+
+#bmi-result-text {
+    margin: 0;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.error-message {
+    color: red;
+    font-size: 0.9em;
+    margin-top: 5px;
+}
+
+/* FAQ Section Styling */
+.faq-item {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.faq-question {
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.faq-question::after {
+    content: '+';
+    font-size: 1.2em;
+    transition: transform 0.3s ease;
+}
+
+.faq-question.active::after {
+    content: '-';
+    transform: rotate(180deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    padding-top: 0;
+}
+
+.faq-answer.show {
+    max-height: 200px; /* Adjust as needed */
+    padding-top: 10px;
+}
+
+/* --- Part 3: JavaScript and CSS Animation with Content --- */
+.animated-box {
+    width: 300px;
+    height: 100px; /* Initial height for the box */
+    background-color: #005f93;
+    margin-top: 20px;
+    position: relative; /* Needed for absolute positioning of the content */
+    border-radius: 8px;
+    overflow: hidden; /* Hides content until it is shown */
+    transition: transform 0.5s ease-in-out, height 0.5s ease-in-out;
+}
+
+/* Class to trigger the animation */
+.animated-box.move-and-grow {
+    transform: translateX(150px);
+    height: 250px; /* Final height for the box to reveal content */
+}
+
+/* Styles for the content inside the box */
+.info-content {
+    color: #fff;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in, visibility 0.3s ease-in;
+}
+
+/* Class to show the content */
+.info-content.show-info {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* Footer: Uses Flexbox to center content */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 20px;
+}
+
+/*
+ * Responsive Web Design (RWD) with Media Queries
+ * The layout will adjust based on screen width.
+ */
+
+/* Tablet View (max-width: 900px) */
+@media (max-width: 900px) {
+    /* Main Grid layout changes to a single column */
+    .main-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Mobile View (max-width: 600px) */
+@media (max-width: 600px) {
+    /* Header and Navigation adjustments */
+    header {
+        padding: 15px 0;
+    }
+
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    /* Cards now stack vertically */
+    .card-container {
+        flex-direction: column;
+    }
+
+    .main-nav {
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+    }
+}
